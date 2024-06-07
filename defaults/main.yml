@@ -1,0 +1,3 @@
+---
+server_name: localhost
+nginx_config_path: /etc/nginx/conf.d/lighthouse.conf

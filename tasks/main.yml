@@ -1,0 +1,18 @@
+---
+- name: Get Lighthouse from Git
+  become: true
+  tags:
+    - get
+  ansible.builtin.git:
+    repo: "{{ lighthouse_repo }}"
+    version: "{{ lighthouse_branch }}"
+    dest: "{{ lighthouse_path }}"
+- name: Setup nginx config for Lighthouse
+  become: true
+  tags:
+    - install
+  ansible.builtin.template:
+    src: templates/lighthouse.nginx.j2
+    dest: {{ nginx_config_path }}
+    mode: "0644"
+  notify: Start Nginx service
