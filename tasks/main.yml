@@ -15,4 +15,4 @@
     src: templates/lighthouse.nginx.j2
     dest: "{{ nginx_config_path }}"
     mode: "0644"
-  notify: Start Nginx service
+  notify: Reload nginx
